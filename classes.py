@@ -21,7 +21,7 @@ class Television:
     def power(self):
         """
         Changes the power status of the Television
-        :param self: Should be an empty value that changes to a bullion
+        :param self: Should be an empty variable that changes to a bullion
         :return: On or Off
         """
         if self.__tv_power == False:
@@ -33,46 +33,54 @@ class Television:
     def channel_up(self):
         """
         Increases the channel number on the Television
+        :param self: Should be an empty variable that changes to a number between 1 and 3
         :return: Channel Number
         """
         if self.__tv_power == True:
             self.__tv_channel += 1
             if self.__tv_channel > Television.MAX_CHANNEL:
                 self.__tv_channel = Television.MIN_CHANNEL
-
+        else:
+            raise Exception('TV is turned off')
 
     def channel_down(self):
         """
         Decreases the channel number on the Television
+        :param self: Should be an empty variable that changes to a number between 1 and 3
         :return: Channel Number
         """
         if self.__tv_power == True:
             self.__tv_channel -= 1
             if self.__tv_channel < Television.MIN_CHANNEL:
                 self.__tv_channel = Television.MAX_CHANNEL
-
+        else:
+            raise Exception('TV is turned off')
 
     def volume_up(self):
         """
         Increases the volume on the Television
+        :param self: Should be an empty variable that changes to a number between 0 and 2
         :return: Television Volume
         """
         if self.__tv_power == True:
             self.__tv_vol += 1
             if self.__tv_vol > Television.MAX_VOLUME:
                 self.__tv_vol = Television.MAX_VOLUME
-
+        else:
+            raise Exception('TV is turned off')
 
     def volume_down(self):
         """
         Decreases the volume on the Television
+        :param self: Should be an empty variable that changes to a number between 0 and 2
         :return: Television Volume
         """
         if self.__tv_power == True:
             self.__tv_vol -= 1
             if self.__tv_vol < Television.MIN_VOLUME:
                 self.__tv_vol = Television.MIN_VOLUME
-
+        else:
+            raise Exception('TV is turned off')
 
     def __str__(self):
 
