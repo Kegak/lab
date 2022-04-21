@@ -1,4 +1,10 @@
 class Television:
+    """
+    A Television
+    Minimum channel and volume is 0
+    Maximum channel is 3
+    Maximum volume is 2
+    """
     MIN_CHANNEL = 0     # Minimum TV channel
     MAX_CHANNEL = 3     # Maximum TV channel
 
@@ -13,6 +19,11 @@ class Television:
 
 
     def power(self):
+        """
+        Changes the power status of the Television
+        :param self: Should be an empty value that changes to a bullion
+        :return: On or Off
+        """
         if self.__tv_power == False:
             self.__tv_power = True
         elif self.__tv_power== True:
@@ -20,6 +31,10 @@ class Television:
 
 
     def channel_up(self):
+        """
+        Increases the channel number on the Television
+        :return: Channel Number
+        """
         if self.__tv_power == True:
             self.__tv_channel += 1
             if self.__tv_channel > Television.MAX_CHANNEL:
@@ -27,6 +42,10 @@ class Television:
 
 
     def channel_down(self):
+        """
+        Decreases the channel number on the Television
+        :return: Channel Number
+        """
         if self.__tv_power == True:
             self.__tv_channel -= 1
             if self.__tv_channel < Television.MIN_CHANNEL:
@@ -34,6 +53,10 @@ class Television:
 
 
     def volume_up(self):
+        """
+        Increases the volume on the Television
+        :return: Television Volume
+        """
         if self.__tv_power == True:
             self.__tv_vol += 1
             if self.__tv_vol > Television.MAX_VOLUME:
@@ -41,6 +64,10 @@ class Television:
 
 
     def volume_down(self):
+        """
+        Decreases the volume on the Television
+        :return: Television Volume
+        """
         if self.__tv_power == True:
             self.__tv_vol -= 1
             if self.__tv_vol < Television.MIN_VOLUME:
