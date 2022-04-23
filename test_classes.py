@@ -3,13 +3,13 @@ from classes import *
 
 class Test:
     def setup_method(self):
-        self.on = power(False) #Should set it to True
-        self.off = power(True) #Should set it to False
+        self.tv = Television()
 
     def teardown_method(self):
-        del self.on
-        del self.off
+        del self.tv
 
+    def test_init(self):
+        assert self.tv.__str__() = 'TV status '
     def test_power(self):
         assert power(False) == True
         assert power(True) == False
