@@ -9,45 +9,49 @@ class Test:
         del self.tv
 
     def test_init(self):
-        assert self.tv.__str__() = 'TV status '
+        assert self.tv.__str__() == 'TV status Is on: False, Channel = 0, Volume = 0'
+        
     def test_power(self):
-        assert power(False) == True
-        assert power(True) == False
+        assert self.tv.__str__() == 'TV status Is on: False, Channel = 0, Volume = 0'
+        self.tv.power()
+        assert self.tv.__str__() == 'TV status Is on: True, Channel = 0, Volume = 0'
 
     def test_channel_up(self):
-        assert self.on.channel_up() >= 0 and <= 3
         with pytest.raises(Exception):
-            self.off.channel_up()
-        with pytest.raises(TypeError):
-            assert self.on.channel_up(2)
-            assert self.on.channel_up(1.3)
-            assert self.on.channel_up('')
+            self.tv.channel_up()
+        assert self.tv.__str__() == 'TV status Is on: False, Channel = 0, Volume = 0'
+        self.tv.power()
+        self.tv.channel_up()
+        assert self.tv.__str__() == 'TV status Is on: True, Channel = 1, Volume = 0'
+
 
     def test_channel_down(self):
-        assert self.on.channel_down() >= 0 and <= 3
         with pytest.raises(Exception):
-            self.off.channel_down()
-        with pytest.raises(TypeError):
-            assert self.on.channel_down(2)
-            assert self.on.channel_down(1.3)
-            assert self.on.channel_down('')
+            self.tv.channel_down()
+        assert self.tv.__str__() == 'TV status Is on: False, Channel = 0, Volume = 0'
+        self.tv.power()
+        self.tv.channel_down()
+        assert self.tv.__str__() == 'TV status Is on: True, Channel = 3, Volume = 0'
+
     def test_volume_up(self):
-        assert self.on.volume_up() >= 0 and <= 2
         with pytest.raises(Exception):
-            self.off.volume_up()
-        with pytest.raises(TypeError):
-            assert self.on.volume_up(2)
-            assert self.on.volume_up(1.3)
-            assert self.on.volume_up('')
+            self.tv.volume_up()
+        assert self.tv.__str__() == 'TV status Is on: False, Channel = 0, Volume = 0'
+        self.tv.power()
+        self.tv.volume_down()
+        assert self.tv.__str__() == 'TV status Is on: True, Channel = 0, Volume = 1'
+
+
 
     def test_volume_down(self):
-        assert self.on.volume_down() >= 0 and <= 2
         with pytest.raises(Exception):
-            self.off.volume_down()
-        with pytest.raises(TypeError):
-            assert self.on.volume_down(2)
-            assert self.on.volume_down(1.3)
-            assert self.on.volume_down('')
+            self.tv.volume_down()
+        assert self.tv.__str__() == 'TV status Is on: False, Channel = 0, Volume = 0'
+        self.tv.power()
+        self.tv.volume_down()
+        assert self.tv.__str__() == 'TV status Is on: False, Channel = 0, Volume = 2'
+
+
 
     def test___str__(self):
-        
+        assert self.tv.__str__() == 'TV status Is on: False, Channel = 0, Volume = 0'
