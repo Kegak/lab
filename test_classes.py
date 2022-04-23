@@ -23,7 +23,10 @@ class Test:
         self.tv.power()
         self.tv.channel_up()
         assert self.tv.__str__() == 'TV status Is on: True, Channel = 1, Volume = 0'
-
+        self.tv.channel_up()
+        self.tv.channel_up()
+        self.tv.channel_up()
+        assert self.tv.__str__() == 'TV status Is on: True, Channel = 0, Volume = 0'
 
     def test_channel_down(self):
         with pytest.raises(Exception):
@@ -38,9 +41,11 @@ class Test:
             self.tv.volume_up()
         assert self.tv.__str__() == 'TV status Is on: False, Channel = 0, Volume = 0'
         self.tv.power()
-        self.tv.volume_down()
+        self.tv.volume_up()
         assert self.tv.__str__() == 'TV status Is on: True, Channel = 0, Volume = 1'
-
+        self.tv.volume_up()
+        self.tv.volume_up()
+        assert self.tv.__str__() == 'TV status Is on: True, Channel = 0, Volume = 0'
 
 
     def test_volume_down(self):
