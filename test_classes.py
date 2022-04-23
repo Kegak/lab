@@ -48,3 +48,6 @@ class Test:
             assert self.on.volume_down(2)
             assert self.on.volume_down(1.3)
             assert self.on.volume_down('')
+
+    def test___str__(self):
+        
